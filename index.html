@@ -1,0 +1,1044 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#11110f">
+  <title>ÉLORA — The Art of Elegance</title>
+
+  <!-- Elegant typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #11110f;
+      --surface: #191916;
+      --ivory: #f3eee4;
+      --muted: #aaa69b;
+      --gold: #c8a96b;
+      --line: rgba(243, 238, 228, 0.13);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ivory);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1160px, 88%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      min-height: 82px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 30px;
+      letter-spacing: 5px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      padding: 12px 18px;
+      border: 1px solid var(--gold);
+      color: var(--gold) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      color: var(--ivory);
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 55px;
+      padding-top: 100px;
+      padding-bottom: 60px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 400;
+    }
+
+    .hero h1 {
+      margin: 28px 0;
+      font-size: clamp(58px, 7.2vw, 100px);
+      line-height: 0.94;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 em {
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    .hero-description {
+      max-width: 410px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 2;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      min-height: 49px;
+      padding: 0 23px;
+      background: var(--gold);
+      color: #171510;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .button:hover {
+      background: var(--ivory);
+      transform: translateY(-3px);
+    }
+
+    .text-link {
+      font-size: 11px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 7px;
+    }
+
+    .hero-visual {
+      position: relative;
+      height: min(620px, 70vh);
+      min-height: 420px;
+      overflow: hidden;
+      background: #24231d;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.76) saturate(0.65);
+      transition: transform 1.2s;
+    }
+
+    .hero-visual:hover img {
+      transform: scale(1.045);
+    }
+
+    .image-frame {
+      position: absolute;
+      inset: 15px;
+      border: 1px solid rgba(243, 238, 228, 0.28);
+      pointer-events: none;
+    }
+
+    .image-label {
+      position: absolute;
+      bottom: 32px;
+      left: 32px;
+      right: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 12px;
+    }
+
+    .image-label p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+    }
+
+    .image-label span {
+      color: #e5d7bb;
+      font-size: 9px;
+      letter-spacing: 2px;
+    }
+
+    .hero-index {
+      position: absolute;
+      right: -29px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 3px;
+    }
+
+    /* MARQUEE */
+    .marquee {
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 23px 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: slide 28s linear infinite;
+    }
+
+    .marquee span {
+      padding: 0 32px;
+      color: var(--muted);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 23px;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    .marquee span::after {
+      content: " ✦";
+      color: var(--gold);
+      padding-left: 30px;
+    }
+
+    @keyframes slide {
+      to { transform: translateX(-50%); }
+    }
+
+    /* SECTION COMMON */
+    section.content-section {
+      padding: 120px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading h2 {
+      margin-top: 17px;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1;
+    }
+
+    .section-heading h2 em {
+      color: var(--gold);
+    }
+
+    .section-heading > p {
+      max-width: 320px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    /* COLLECTIONS */
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 23px;
+    }
+
+    .collection-card {
+      min-width: 0;
+      cursor: default;
+    }
+
+    .collection-image {
+      height: 390px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .collection-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.65) brightness(0.8);
+      transition: transform 0.8s, filter 0.8s;
+    }
+
+    .collection-card:hover img {
+      transform: scale(1.06);
+      filter: saturate(0.9) brightness(0.95);
+    }
+
+    .collection-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .collection-info h3 {
+      font-size: 28px;
+    }
+
+    .collection-info p {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .collection-number {
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 20px;
+    }
+
+    /* ABOUT */
+    .about {
+      background: var(--surface);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .about-art {
+      position: relative;
+      height: 510px;
+      background: #29271f;
+    }
+
+    .about-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.55) brightness(0.8);
+    }
+
+    .about-stamp {
+      position: absolute;
+      right: -25px;
+      bottom: 35px;
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .about-copy h2 {
+      margin: 23px 0;
+      font-size: clamp(45px, 5vw, 67px);
+      line-height: 0.98;
+    }
+
+    .about-copy h2 em {
+      color: var(--gold);
+    }
+
+    .about-copy > p {
+      max-width: 450px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 2.1;
+      font-weight: 300;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      max-width: 420px;
+      margin-top: 40px;
+      padding-top: 25px;
+      border-top: 1px solid var(--line);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 35px;
+      font-weight: 400;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    /* QUOTE */
+    .quote {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .quote-mark {
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 65px;
+      line-height: 0.8;
+    }
+
+    .quote blockquote {
+      max-width: 800px;
+      margin: 25px auto;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(32px, 5vw, 55px);
+      line-height: 1.2;
+    }
+
+    .quote blockquote em {
+      color: var(--gold);
+    }
+
+    .quote small {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* CONTACT */
+    .contact-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 70px 35px;
+      text-align: center;
+      background: #201f19;
+      border: 1px solid var(--line);
+    }
+
+    .contact-panel::before,
+    .contact-panel::after {
+      content: "✦";
+      position: absolute;
+      color: rgba(200, 169, 107, 0.15);
+      font-size: 140px;
+    }
+
+    .contact-panel::before {
+      top: -30px;
+      left: 20px;
+    }
+
+    .contact-panel::after {
+      right: 20px;
+      bottom: -60px;
+    }
+
+    .contact-panel h2 {
+      position: relative;
+      z-index: 1;
+      margin: 20px 0;
+      font-size: clamp(44px, 6vw, 75px);
+      line-height: 1;
+    }
+
+    .contact-panel > p {
+      position: relative;
+      z-index: 1;
+      max-width: 440px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    .contact-panel .button {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 100px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      padding: 35px 0;
+    }
+
+    .footer-main p {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 10px;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .copyright {
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      color: #77756c;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    /* REVEAL ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 82px;
+        left: 0;
+        width: 100%;
+        padding: 25px 6%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 42px;
+        padding-top: 145px;
+      }
+
+      .hero-visual {
+        height: 490px;
+        min-height: 0;
+      }
+
+      .hero-index {
+        display: none;
+      }
+
+      section.content-section {
+        padding: 85px 0;
+      }
+
+      .collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 18px;
+      }
+
+      .collection-image {
+        height: 300px;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
+
+      .about-art {
+        height: 440px;
+        margin-right: 15px;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-main {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: 88%;
+      }
+
+      .hero h1 {
+        font-size: 63px;
+      }
+
+      .hero-visual {
+        height: 390px;
+      }
+
+      .hero-actions {
+        gap: 18px;
+      }
+
+      .button {
+        padding: 0 16px;
+        gap: 10px;
+        font-size: 9px;
+      }
+
+      .collection-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .collection-image {
+        height: 390px;
+      }
+
+      .about-art {
+        height: 360px;
+      }
+
+      .contact-panel {
+        padding: 60px 18px;
+      }
+
+      .footer-links {
+        gap: 15px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="container">
+      <a href="#home" class="logo">ÉL<span>O</span>RA.</a>
+
+      <button
+        class="menu-toggle"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false"
+        aria-controls="nav-links"
+      >☰</button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#contact" class="nav-cta">Get in Touch ↗</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero container" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">The Art of Living Beautifully</p>
+
+        <h1>
+          Elegance<br>
+          is an<br>
+          <em>Attitude.</em>
+        </h1>
+
+        <p class="hero-description">
+          A celebration of timeless beauty, thoughtful details,
+          and the quiet luxury of living life on your own terms.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#collections" class="button">
+            Explore More <span>↗</span>
+          </a>
+          <a href="#about" class="text-link">Discover our story</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <img
+          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"
+          alt="Interior elegan dengan palet warna hangat"
+        >
+        <div class="image-frame"></div>
+        <div class="image-label">
+          <div>
+            <p>Less, but better.</p>
+            <span>THE TIMELESS EDITION</span>
+          </div>
+          <span>01 / 03</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOVING TEXT -->
+    <div class="marquee" aria-label="Timeless design, intentional living">
+      <div class="marquee-track" aria-hidden="true">
+        <span>Timeless Design</span>
+        <span>Intentional Living</span>
+        <span>Quiet Luxury</span>
+        <span>Modern Heritage</span>
+        <span>Timeless Design</span>
+        <span>Intentional Living</span>
+        <span>Quiet Luxury</span>
+        <span>Modern Heritage</span>
+      </div>
+    </div>
+
+    <!-- COLLECTIONS -->
+    <section class="content-section container" id="collections">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">Curated with Intention</p>
+          <h2>Our <em>Collections.</em></h2>
+        </div>
+        <p>
+          Thoughtfully curated inspirations that bring together
+          understated beauty and meaningful design.
+        </p>
+      </div>
+
+      <div class="collection-grid">
+        <article class="collection-card reveal">
+          <div class="collection-image">
+            <img
+              src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=85"
+              alt="Interior minimalis dengan detail natural"
+              loading="lazy"
+            >
+          </div>
+          <div class="collection-info">
+            <div>
+              <h3>The Living Edit</h3>
+              <p>SPACE &amp; INTERIOR</p>
+            </div>
+            <span class="collection-number">01</span>
+          </div>
+        </article>
+
+        <article class="collection-card reveal">
+          <div class="collection-image">
+            <img
+              src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=85"
+              alt="Fashion editorial bernuansa netral"
+              loading="lazy"
+            >
+          </div>
+          <div class="collection-info">
+            <div>
+              <h3>Modern Muse</h3>
+              <p>STYLE &amp; CULTURE</p>
+            </div>
+            <span class="collection-number">02</span>
+          </div>
+        </article>
+
+        <article class="collection-card reveal">
+          <div class="collection-image">
+            <img
+              src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=85"
+              alt="Rangkaian bunga dengan nuansa lembut"
+              loading="lazy"
+            >
+          </div>
+          <div class="collection-info">
+            <div>
+              <h3>Soft Moments</h3>
+              <p>ART &amp; DETAILS</p>
+            </div>
+            <span class="collection-number">03</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="content-section about" id="about">
+      <div class="about-layout container">
+        <div class="about-art reveal">
+          <img
+            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=85"
+            alt="Detail ruang dengan desain elegan"
+            loading="lazy"
+          >
+          <div class="about-stamp">
+            Est.<br>With<br>Intention
+          </div>
+        </div>
+
+        <div class="about-copy reveal">
+          <p class="eyebrow">A Little About Us</p>
+          <h2>Beauty in<br>the <em>Details.</em></h2>
+
+          <p>
+            We believe true elegance doesn't need to be loud.
+            It lives in the little things — the textures we touch,
+            the spaces we create, and the moments we choose to keep.
+          </p>
+
+          <p style="margin-top: 18px;">
+            ÉLORA is a space for those who appreciate authenticity,
+            timeless aesthetics, and a more intentional way of living.
+          </p>
+
+          <div class="about-stats">
+            <div class="stat">
+              <strong>Less</strong>
+              <span>MORE MEANING</span>
+            </div>
+            <div class="stat">
+              <strong>Always</strong>
+              <span>TIMELESS BY NATURE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="quote container reveal">
+      <div class="quote-mark">“</div>
+      <blockquote>
+        Luxury is not about having more.
+        It's about appreciating <em>what matters.</em>
+      </blockquote>
+      <small>The ÉLORA Philosophy</small>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="container" id="contact">
+      <div class="contact-panel reveal">
+        <p class="eyebrow" style="justify-content: center;">
+          Let's Create Something Beautiful
+        </p>
+
+        <h2>Good things<br>start with a <em style="color: var(--gold);">hello.</em></h2>
+
+        <p>
+          Have a project in mind, a collaboration idea,
+          or simply want to say hello? We'd love to hear from you.
+        </p>
+
+        <!-- Ganti alamat email di bawah dengan email kamu -->
+        <a
+          class="button"
+          href="mailto:hello@example.com?subject=Hello%20Elora"
+        >
+          Get in Touch <span>↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-main container">
+      <div>
+        <a href="#home" class="logo">ÉL<span>O</span>RA.</a>
+        <p style="margin-top: 10px;">
+          The art of living beautifully.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">HOME</a>
+        <a href="#collections">COLLECTIONS</a>
+        <a href="#about">OUR STORY</a>
+        <a href="#contact">CONTACT</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © <span id="year"></span> ÉLORA STUDIO — MADE WITH INTENTION.
+    </div>
+  </footer>
+
+  <script>
+    // Automatically update the copyright year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Mobile navigation
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
+      );
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    // Close the mobile menu after selecting a section
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Buka menu navigasi");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Reveal sections as they enter the viewport
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element =>
+        element.classList.add("visible")
+      );
+    }
+  </script>
+
+</body>
+</html>
