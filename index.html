@@ -1,1044 +1,209 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#11110f">
-  <title>ÉLORA — The Art of Elegance</title>
-
-  <!-- Elegant typography -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#173f35" />
+  <title>Tahfidz Track — Ruang Tumbuh Hafalan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #11110f;
-      --surface: #191916;
-      --ivory: #f3eee4;
-      --muted: #aaa69b;
-      --gold: #c8a96b;
-      --line: rgba(243, 238, 228, 0.13);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--ivory);
-      font-family: "DM Sans", sans-serif;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .container {
-      width: min(1160px, 88%);
-      margin: auto;
-    }
-
-    /* NAVIGATION */
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 10;
-      border-bottom: 1px solid var(--line);
-    }
-
-    nav {
-      min-height: 82px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .logo {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 30px;
-      letter-spacing: 5px;
-    }
-
-    .logo span {
-      color: var(--gold);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold);
-    }
-
-    .nav-cta {
-      padding: 12px 18px;
-      border: 1px solid var(--gold);
-      color: var(--gold) !important;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: 0;
-      color: var(--ivory);
-      font-size: 25px;
-      cursor: pointer;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      min-height: 100svh;
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items: center;
-      gap: 55px;
-      padding-top: 100px;
-      padding-bottom: 60px;
-    }
-
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--gold);
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      display: block;
-      width: 32px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    h1, h2, h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-weight: 400;
-    }
-
-    .hero h1 {
-      margin: 28px 0;
-      font-size: clamp(58px, 7.2vw, 100px);
-      line-height: 0.94;
-      letter-spacing: -2px;
-    }
-
-    .hero h1 em {
-      color: var(--gold);
-      font-weight: 400;
-    }
-
-    .hero-description {
-      max-width: 410px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 2;
-      font-weight: 300;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      margin-top: 34px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 18px;
-      min-height: 49px;
-      padding: 0 23px;
-      background: var(--gold);
-      color: #171510;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      transition: background 0.3s, transform 0.3s;
-    }
-
-    .button:hover {
-      background: var(--ivory);
-      transform: translateY(-3px);
-    }
-
-    .text-link {
-      font-size: 11px;
-      color: var(--muted);
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 7px;
-    }
-
-    .hero-visual {
-      position: relative;
-      height: min(620px, 70vh);
-      min-height: 420px;
-      overflow: hidden;
-      background: #24231d;
-    }
-
-    .hero-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.76) saturate(0.65);
-      transition: transform 1.2s;
-    }
-
-    .hero-visual:hover img {
-      transform: scale(1.045);
-    }
-
-    .image-frame {
-      position: absolute;
-      inset: 15px;
-      border: 1px solid rgba(243, 238, 228, 0.28);
-      pointer-events: none;
-    }
-
-    .image-label {
-      position: absolute;
-      bottom: 32px;
-      left: 32px;
-      right: 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 12px;
-    }
-
-    .image-label p {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 25px;
-    }
-
-    .image-label span {
-      color: #e5d7bb;
-      font-size: 9px;
-      letter-spacing: 2px;
-    }
-
-    .hero-index {
-      position: absolute;
-      right: -29px;
-      top: 50%;
-      transform: translateY(-50%) rotate(90deg);
-      color: var(--muted);
-      font-size: 9px;
-      letter-spacing: 3px;
-    }
-
-    /* MARQUEE */
-    .marquee {
-      overflow: hidden;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 23px 0;
-    }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: slide 28s linear infinite;
-    }
-
-    .marquee span {
-      padding: 0 32px;
-      color: var(--muted);
-      font-family: "Cormorant Garamond", serif;
-      font-size: 23px;
-      letter-spacing: 2px;
-      white-space: nowrap;
-    }
-
-    .marquee span::after {
-      content: " ✦";
-      color: var(--gold);
-      padding-left: 30px;
-    }
-
-    @keyframes slide {
-      to { transform: translateX(-50%); }
-    }
-
-    /* SECTION COMMON */
-    section.content-section {
-      padding: 120px 0;
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 30px;
-      margin-bottom: 48px;
-    }
-
-    .section-heading h2 {
-      margin-top: 17px;
-      font-size: clamp(42px, 5vw, 64px);
-      line-height: 1;
-    }
-
-    .section-heading h2 em {
-      color: var(--gold);
-    }
-
-    .section-heading > p {
-      max-width: 320px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.9;
-    }
-
-    /* COLLECTIONS */
-    .collection-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 23px;
-    }
-
-    .collection-card {
-      min-width: 0;
-      cursor: default;
-    }
-
-    .collection-image {
-      height: 390px;
-      overflow: hidden;
-      background: var(--surface);
-    }
-
-    .collection-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(0.65) brightness(0.8);
-      transition: transform 0.8s, filter 0.8s;
-    }
-
-    .collection-card:hover img {
-      transform: scale(1.06);
-      filter: saturate(0.9) brightness(0.95);
-    }
-
-    .collection-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .collection-info h3 {
-      font-size: 28px;
-    }
-
-    .collection-info p {
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 10px;
-      letter-spacing: 1px;
-    }
-
-    .collection-number {
-      color: var(--gold);
-      font-family: "Cormorant Garamond", serif;
-      font-size: 20px;
-    }
-
-    /* ABOUT */
-    .about {
-      background: var(--surface);
-    }
-
-    .about-layout {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 90px;
-      align-items: center;
-    }
-
-    .about-art {
-      position: relative;
-      height: 510px;
-      background: #29271f;
-    }
-
-    .about-art img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(0.55) brightness(0.8);
-    }
-
-    .about-stamp {
-      position: absolute;
-      right: -25px;
-      bottom: 35px;
-      width: 112px;
-      height: 112px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      background: var(--gold);
-      color: var(--bg);
-      font-family: "Cormorant Garamond", serif;
-      font-size: 18px;
-      line-height: 1.1;
-    }
-
-    .about-copy h2 {
-      margin: 23px 0;
-      font-size: clamp(45px, 5vw, 67px);
-      line-height: 0.98;
-    }
-
-    .about-copy h2 em {
-      color: var(--gold);
-    }
-
-    .about-copy > p {
-      max-width: 450px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 2.1;
-      font-weight: 300;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      max-width: 420px;
-      margin-top: 40px;
-      padding-top: 25px;
-      border-top: 1px solid var(--line);
-    }
-
-    .stat strong {
-      display: block;
-      color: var(--gold);
-      font-family: "Cormorant Garamond", serif;
-      font-size: 35px;
-      font-weight: 400;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 10px;
-      letter-spacing: 1px;
-    }
-
-    /* QUOTE */
-    .quote {
-      text-align: center;
-      padding: 100px 20px;
-    }
-
-    .quote-mark {
-      color: var(--gold);
-      font-family: "Cormorant Garamond", serif;
-      font-size: 65px;
-      line-height: 0.8;
-    }
-
-    .quote blockquote {
-      max-width: 800px;
-      margin: 25px auto;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(32px, 5vw, 55px);
-      line-height: 1.2;
-    }
-
-    .quote blockquote em {
-      color: var(--gold);
-    }
-
-    .quote small {
-      color: var(--muted);
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    /* CONTACT */
-    .contact-panel {
-      position: relative;
-      overflow: hidden;
-      padding: 70px 35px;
-      text-align: center;
-      background: #201f19;
-      border: 1px solid var(--line);
-    }
-
-    .contact-panel::before,
-    .contact-panel::after {
-      content: "✦";
-      position: absolute;
-      color: rgba(200, 169, 107, 0.15);
-      font-size: 140px;
-    }
-
-    .contact-panel::before {
-      top: -30px;
-      left: 20px;
-    }
-
-    .contact-panel::after {
-      right: 20px;
-      bottom: -60px;
-    }
-
-    .contact-panel h2 {
-      position: relative;
-      z-index: 1;
-      margin: 20px 0;
-      font-size: clamp(44px, 6vw, 75px);
-      line-height: 1;
-    }
-
-    .contact-panel > p {
-      position: relative;
-      z-index: 1;
-      max-width: 440px;
-      margin: 0 auto 30px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 2;
-    }
-
-    .contact-panel .button {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* FOOTER */
-    footer {
-      margin-top: 100px;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-main {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-      padding: 35px 0;
-    }
-
-    .footer-main p {
-      color: var(--muted);
-      font-size: 11px;
-      line-height: 1.8;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 22px;
-    }
-
-    .footer-links a {
-      color: var(--muted);
-      font-size: 10px;
-      transition: color 0.3s;
-    }
-
-    .footer-links a:hover {
-      color: var(--gold);
-    }
-
-    .copyright {
-      padding: 18px 0;
-      border-top: 1px solid var(--line);
-      color: #77756c;
-      font-size: 9px;
-      letter-spacing: 1px;
-      text-align: center;
-    }
-
-    /* REVEAL ANIMATION */
-    .reveal {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 800px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 82px;
-        left: 0;
-        width: 100%;
-        padding: 25px 6%;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 25px;
-        background: var(--bg);
-        border-bottom: 1px solid var(--line);
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 42px;
-        padding-top: 145px;
-      }
-
-      .hero-visual {
-        height: 490px;
-        min-height: 0;
-      }
-
-      .hero-index {
-        display: none;
-      }
-
-      section.content-section {
-        padding: 85px 0;
-      }
-
-      .collection-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 28px 18px;
-      }
-
-      .collection-image {
-        height: 300px;
-      }
-
-      .about-layout {
-        grid-template-columns: 1fr;
-        gap: 55px;
-      }
-
-      .about-art {
-        height: 440px;
-        margin-right: 15px;
-      }
-
-      .section-heading {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .footer-main {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .container {
-        width: 88%;
-      }
-
-      .hero h1 {
-        font-size: 63px;
-      }
-
-      .hero-visual {
-        height: 390px;
-      }
-
-      .hero-actions {
-        gap: 18px;
-      }
-
-      .button {
-        padding: 0 16px;
-        gap: 10px;
-        font-size: 9px;
-      }
-
-      .collection-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .collection-image {
-        height: 390px;
-      }
-
-      .about-art {
-        height: 360px;
-      }
-
-      .contact-panel {
-        padding: 60px 18px;
-      }
-
-      .footer-links {
-        gap: 15px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
-  <!-- NAVBAR -->
-  <header>
-    <nav class="container">
-      <a href="#home" class="logo">ÉL<span>O</span>RA.</a>
-
-      <button
-        class="menu-toggle"
-        aria-label="Buka menu navigasi"
-        aria-expanded="false"
-        aria-controls="nav-links"
-      >☰</button>
-
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#collections">Collections</a></li>
-        <li><a href="#about">Our Story</a></li>
-        <li><a href="#contact" class="nav-cta">Get in Touch ↗</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <!-- HERO -->
-    <section class="hero container" id="home">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">The Art of Living Beautifully</p>
-
-        <h1>
-          Elegance<br>
-          is an<br>
-          <em>Attitude.</em>
-        </h1>
-
-        <p class="hero-description">
-          A celebration of timeless beauty, thoughtful details,
-          and the quiet luxury of living life on your own terms.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#collections" class="button">
-            Explore More <span>↗</span>
-          </a>
-          <a href="#about" class="text-link">Discover our story</a>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Tahfidz Track beranda">
+        <span class="brand-mark">t<span>.</span></span>
+        <span class="brand-copy"><strong>tahfidz<span>track</span></strong><small>RUANG TUMBUH HAFALAN</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-menu" aria-label="Navigasi utama">
+        <button class="nav-link active" data-page="overview"><span class="nav-icon">◫</span> Overview</button>
+        <button class="nav-link" data-page="students"><span class="nav-icon">♧</span> Data santri</button>
+        <button class="nav-link" data-page="submissions"><span class="nav-icon">↗</span> Setoran hafalan</button>
+        <button class="nav-link" data-page="murajaah"><span class="nav-icon">↻</span> Murajaah planner</button>
+        <button class="nav-link" data-page="reports"><span class="nav-icon">▤</span> Laporan</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="verse-card">
+          <span class="verse-mark">✳</span>
+          <p class="verse-arabic" lang="ar" dir="rtl">وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ</p>
+          <p class="verse-note">Langkah kecil, dijaga dengan istiqamah.</p>
+          <span class="verse-ref">QS. Al-Qamar · 17</span>
         </div>
+        <button class="profile-button" id="profileButton" type="button">
+          <span class="avatar">AT</span>
+          <span class="profile-text"><strong>Admin Tahfidz</strong><small>Pengelola program</small></span>
+          <span class="profile-dots">···</span>
+        </button>
       </div>
+    </aside>
 
-      <div class="hero-visual reveal">
-        <img
-          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"
-          alt="Interior elegan dengan palet warna hangat"
-        >
-        <div class="image-frame"></div>
-        <div class="image-label">
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Buka menu">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><span class="crumb-slash">/</span><strong id="breadcrumbTitle">Overview</strong></div>
+        <div class="topbar-right">
+          <span class="today-pill"><span class="status-dot"></span><span id="todayLabel">Hari ini</span></span>
+          <button class="icon-button" id="helpButton" title="Tentang Tahfidz Track" aria-label="Tentang Tahfidz Track">?</button>
+        </div>
+      </header>
+
+      <section class="page active-page" id="page-overview">
+        <div class="welcome-row">
           <div>
-            <p>Less, but better.</p>
-            <span>THE TIMELESS EDITION</span>
+            <div class="eyebrow"><span class="eyebrow-line"></span> MONDAY, MINDFUL MOMENT</div>
+            <h1>Assalamu’alaikum,<br><span>teman-teman tahfidz.</span></h1>
+            <p class="intro">Setiap ayat punya proses. Yuk, jaga prosesnya tetap terarah.</p>
           </div>
-          <span>01 / 03</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- MOVING TEXT -->
-    <div class="marquee" aria-label="Timeless design, intentional living">
-      <div class="marquee-track" aria-hidden="true">
-        <span>Timeless Design</span>
-        <span>Intentional Living</span>
-        <span>Quiet Luxury</span>
-        <span>Modern Heritage</span>
-        <span>Timeless Design</span>
-        <span>Intentional Living</span>
-        <span>Quiet Luxury</span>
-        <span>Modern Heritage</span>
-      </div>
-    </div>
-
-    <!-- COLLECTIONS -->
-    <section class="content-section container" id="collections">
-      <div class="section-heading reveal">
-        <div>
-          <p class="eyebrow">Curated with Intention</p>
-          <h2>Our <em>Collections.</em></h2>
-        </div>
-        <p>
-          Thoughtfully curated inspirations that bring together
-          understated beauty and meaningful design.
-        </p>
-      </div>
-
-      <div class="collection-grid">
-        <article class="collection-card reveal">
-          <div class="collection-image">
-            <img
-              src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=85"
-              alt="Interior minimalis dengan detail natural"
-              loading="lazy"
-            >
-          </div>
-          <div class="collection-info">
-            <div>
-              <h3>The Living Edit</h3>
-              <p>SPACE &amp; INTERIOR</p>
-            </div>
-            <span class="collection-number">01</span>
-          </div>
-        </article>
-
-        <article class="collection-card reveal">
-          <div class="collection-image">
-            <img
-              src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=85"
-              alt="Fashion editorial bernuansa netral"
-              loading="lazy"
-            >
-          </div>
-          <div class="collection-info">
-            <div>
-              <h3>Modern Muse</h3>
-              <p>STYLE &amp; CULTURE</p>
-            </div>
-            <span class="collection-number">02</span>
-          </div>
-        </article>
-
-        <article class="collection-card reveal">
-          <div class="collection-image">
-            <img
-              src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=85"
-              alt="Rangkaian bunga dengan nuansa lembut"
-              loading="lazy"
-            >
-          </div>
-          <div class="collection-info">
-            <div>
-              <h3>Soft Moments</h3>
-              <p>ART &amp; DETAILS</p>
-            </div>
-            <span class="collection-number">03</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="content-section about" id="about">
-      <div class="about-layout container">
-        <div class="about-art reveal">
-          <img
-            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=85"
-            alt="Detail ruang dengan desain elegan"
-            loading="lazy"
-          >
-          <div class="about-stamp">
-            Est.<br>With<br>Intention
+          <div class="welcome-art" aria-hidden="true">
+            <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+            <div class="art-sun"></div><div class="art-hill hill-back"></div><div class="art-hill hill-front"></div>
+            <span class="art-spark spark-one">✳</span><span class="art-spark spark-two">✦</span>
+            <span class="art-caption">GROW WITH<br>CONSISTENCY</span>
           </div>
         </div>
 
-        <div class="about-copy reveal">
-          <p class="eyebrow">A Little About Us</p>
-          <h2>Beauty in<br>the <em>Details.</em></h2>
-
-          <p>
-            We believe true elegance doesn't need to be loud.
-            It lives in the little things — the textures we touch,
-            the spaces we create, and the moments we choose to keep.
-          </p>
-
-          <p style="margin-top: 18px;">
-            ÉLORA is a space for those who appreciate authenticity,
-            timeless aesthetics, and a more intentional way of living.
-          </p>
-
-          <div class="about-stats">
-            <div class="stat">
-              <strong>Less</strong>
-              <span>MORE MEANING</span>
-            </div>
-            <div class="stat">
-              <strong>Always</strong>
-              <span>TIMELESS BY NATURE</span>
-            </div>
-          </div>
+        <div class="section-heading">
+          <div><h2>Program at a glance</h2><p>Gambaran singkat aktivitas hari ini.</p></div>
+          <span class="subtle-label">DATA DEMO · BUKAN DATA NYATA</span>
         </div>
-      </div>
-    </section>
+        <div class="stats-grid">
+          <article class="stat-card stat-dark">
+            <div class="stat-top"><span>Santri terdata</span><span class="stat-icon">♧</span></div>
+            <div class="stat-value" id="studentCount">24</div>
+            <div class="stat-bottom"><span class="stat-dot lime"></span> Dalam program tahfidz</div>
+            <div class="stat-watermark">01</div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Setoran hari ini</span><span class="stat-icon pale-icon">↗</span></div>
+            <div class="stat-value" id="submissionCount">08</div>
+            <div class="stat-bottom"><span class="tiny-trend">↗</span> Catatan setoran tersimpan</div>
+            <div class="stat-watermark soft">02</div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Perlu murajaah</span><span class="stat-icon pale-icon">↻</span></div>
+            <div class="stat-value" id="reviewCount">06</div>
+            <div class="stat-bottom"><span class="status-chip">Terjadwal</span> Untuk ditinjau</div>
+            <div class="stat-watermark soft">03</div>
+          </article>
+          <article class="stat-card stat-lime">
+            <div class="stat-top"><span>Halaqah aktif</span><span class="stat-icon dark-icon">◌</span></div>
+            <div class="stat-value">04</div>
+            <div class="stat-bottom"><span class="dark-mini-dot"></span> Berjalan pekan ini</div>
+            <div class="stat-watermark">04</div>
+          </article>
+        </div>
 
-    <!-- QUOTE -->
-    <section class="quote container reveal">
-      <div class="quote-mark">“</div>
-      <blockquote>
-        Luxury is not about having more.
-        It's about appreciating <em>what matters.</em>
-      </blockquote>
-      <small>The ÉLORA Philosophy</small>
-    </section>
+        <div class="content-grid">
+          <section class="panel activity-panel">
+            <div class="panel-heading">
+              <div><h2>Aktivitas terbaru</h2><p>Catatan yang baru masuk.</p></div>
+              <button class="text-button" data-go="submissions">Lihat semua <span>↗</span></button>
+            </div>
+            <div class="activity-list" id="activityList"></div>
+            <div class="panel-footer"><span class="footer-dot"></span> Data contoh untuk demonstrasi</div>
+          </section>
+          <section class="panel focus-panel">
+            <div class="focus-top"><span class="focus-kicker">A LITTLE REMINDER</span><span class="focus-star">✳</span></div>
+            <div class="focus-quote">“Yang dijaga bukan hanya hafalan, tapi juga <em>perjalanan</em> di baliknya.”</div>
+            <div class="focus-divider"></div>
+            <div class="focus-bottom"><span class="focus-icon">↗</span><span><strong>Progress over pressure.</strong><small>Ruang tumbuh, bukan ruang membandingkan.</small></span></div>
+            <div class="focus-decoration">tt.</div>
+          </section>
+        </div>
 
-    <!-- CONTACT -->
-    <section class="container" id="contact">
-      <div class="contact-panel reveal">
-        <p class="eyebrow" style="justify-content: center;">
-          Let's Create Something Beautiful
-        </p>
+        <section class="panel quick-panel">
+          <div class="panel-heading">
+            <div><h2>Mulai dari sini</h2><p>Akses cepat untuk rutinitas pengurus.</p></div>
+          </div>
+          <div class="quick-actions">
+            <button class="quick-action" data-go="submissions"><span class="quick-icon green-icon">＋</span><span><strong>Catat setoran</strong><small>Input hafalan terbaru</small></span><span class="quick-arrow">↗</span></button>
+            <button class="quick-action" data-go="students"><span class="quick-icon cream-icon">♧</span><span><strong>Data santri</strong><small>Kelola daftar santri</small></span><span class="quick-arrow">↗</span></button>
+            <button class="quick-action" data-go="murajaah"><span class="quick-icon lime-icon">↻</span><span><strong>Jadwal murajaah</strong><small>Tinjau tindak lanjut</small></span><span class="quick-arrow">↗</span></button>
+          </div>
+        </section>
+        <footer class="page-footer"><span>TAHFIDZ TRACK</span><span>Dirancang untuk proses yang lebih terarah <span class="footer-heart">✳</span></span></footer>
+      </section>
 
-        <h2>Good things<br>start with a <em style="color: var(--gold);">hello.</em></h2>
+      <section class="page" id="page-students">
+        <div class="page-title-row"><div><div class="eyebrow"><span class="eyebrow-line"></span> PEOPLE & GROUPS</div><h1>Data <span>santri.</span></h1><p class="intro">Kenali setiap perjalanan, satu santri dalam satu waktu.</p></div><button class="primary-button" id="addStudentButton">＋ Tambah santri</button></div>
+        <div class="toolbar"><label class="search-box"><span>⌕</span><input id="studentSearch" type="search" placeholder="Cari nama atau kelas..." /></label><span class="subtle-label">DATA DEMO</span></div>
+        <div class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>Nama santri</th><th>Kelas</th><th>Halaqah</th><th>Status</th></tr></thead><tbody id="studentTable"></tbody></table></div><div class="empty-state hidden" id="studentEmpty">Belum ada data yang cocok dengan pencarian.</div></div>
+        <footer class="page-footer"><span>TAHFIDZ TRACK</span><span>Data demo · gunakan data fiktif untuk presentasi</span></footer>
+      </section>
 
-        <p>
-          Have a project in mind, a collaboration idea,
-          or simply want to say hello? We'd love to hear from you.
-        </p>
+      <section class="page" id="page-submissions">
+        <div class="page-title-row"><div><div class="eyebrow"><span class="eyebrow-line"></span> DAILY RECITATION</div><h1>Setoran <span>hafalan.</span></h1><p class="intro">Catat dengan ringkas, tindak lanjuti dengan jelas.</p></div></div>
+        <div class="submission-layout">
+          <form class="panel form-panel" id="submissionForm">
+            <div class="panel-heading"><div><h2>Catatan setoran baru</h2><p>Diisi oleh ustaz/ustazah atau pengurus.</p></div><span class="form-step">01 / ENTRY</span></div>
+            <label class="field-label">Metode setoran <span>*</span></label>
+            <div class="segmented"><label><input type="radio" name="method" value="Individual" checked><span>Individual</span></label><label><input type="radio" name="method" value="Halaqah"><span>Halaqah</span></label></div>
+            <div class="form-two-col">
+              <label class="field-label">Nama santri <span>*</span><select id="submissionStudent" required></select></label>
+              <label class="field-label">Tanggal <span>*</span><input id="submissionDate" type="date" required></label>
+            </div>
+            <div class="form-two-col">
+              <label class="field-label">Surah <span>*</span><select id="submissionSurah" required><option value="">Pilih surah</option><option>Al-Fatihah</option><option>Al-Baqarah</option><option>Ali 'Imran</option><option>An-Nisa</option><option>Al-Kahf</option><option>Maryam</option><option>Ar-Rahman</option><option>Al-Mulk</option><option>Juz Amma</option><option>Lainnya</option></select></label>
+              <div class="form-two-col ayat-fields"><label class="field-label">Ayat awal <input id="ayatStart" type="number" min="1" placeholder="1" required></label><label class="field-label">Ayat akhir <input id="ayatEnd" type="number" min="1" placeholder="5" required></label></div>
+            </div>
+            <label class="field-label">Catatan evaluasi <span>*</span><select id="evaluation" required><option value="">Pilih catatan</option><option>Baik — lanjut sesuai target</option><option>Perlu pengulangan pada beberapa ayat</option><option>Perlu penguatan tajwid dan makhraj</option><option>Setoran ditunda — perlu persiapan</option></select></label>
+            <label class="field-label">Catatan tindak lanjut <textarea id="followup" rows="3" placeholder="Contoh: ulangi ayat 5–8 sebelum setoran berikutnya..."></textarea></label>
+            <div class="form-note"><span>ⓘ</span> Evaluasi merupakan catatan guru, bukan penilaian otomatis.</div>
+            <button class="primary-button full-button" type="submit">Simpan catatan setoran <span>↗</span></button>
+          </form>
+          <aside class="panel form-aside">
+            <div class="aside-number">FIELD NOTE / 01</div><div class="aside-orb">✳</div>
+            <h3>Progress, not<br><em>perfection.</em></h3>
+            <p>Setiap catatan adalah bahan untuk mendampingi proses belajar dengan lebih baik.</p>
+            <div class="aside-rule"></div>
+            <div class="aside-mini"><span>01</span><span>Catat sesuai hasil tasmi’ langsung.</span></div>
+            <div class="aside-mini"><span>02</span><span>Gunakan catatan yang spesifik dan santun.</span></div>
+            <div class="aside-mini"><span>03</span><span>Jaga kerahasiaan data santri.</span></div>
+          </aside>
+        </div>
+        <footer class="page-footer"><span>TAHFIDZ TRACK</span><span>Data demo tersimpan di browser ini</span></footer>
+      </section>
 
-        <!-- Ganti alamat email di bawah dengan email kamu -->
-        <a
-          class="button"
-          href="mailto:hello@example.com?subject=Hello%20Elora"
-        >
-          Get in Touch <span>↗</span>
-        </a>
-      </div>
-    </section>
-  </main>
+      <section class="page" id="page-murajaah">
+        <div class="page-title-row"><div><div class="eyebrow"><span class="eyebrow-line"></span> KEEP IT CLOSE</div><h1>Murajaah <span>planner.</span></h1><p class="intro">Pengingat lembut untuk hafalan yang ingin terus dijaga.</p></div></div>
+        <div class="planner-banner"><div><span class="subtle-label">WEEKLY INTENTION</span><h2>Pelan-pelan, <em>tetap berjalan.</em></h2><p>Susun tindak lanjut yang realistis bersama pembimbing.</p></div><div class="planner-mark">↻</div></div>
+        <div class="section-heading"><div><h2>Daftar tindak lanjut</h2><p>Contoh agenda murajaah untuk demonstrasi.</p></div><span class="subtle-label">SAMPLE PLAN</span></div>
+        <div class="review-list">
+          <article class="review-item"><span class="review-day">SEN<span>20</span></span><span class="review-content"><strong>Penguatan ayat pilihan</strong><small>Halaqah Al-Kindi · setelah Subuh</small></span><span class="review-tag tag-pending">Perlu ditinjau</span></article>
+          <article class="review-item"><span class="review-day">SEL<span>21</span></span><span class="review-content"><strong>Murajaah juz berjalan</strong><small>Halaqah Maryam · setelah Maghrib</small></span><span class="review-tag tag-ready">Terjadwal</span></article>
+          <article class="review-item"><span class="review-day">KAM<span>23</span></span><span class="review-content"><strong>Evaluasi setoran pekanan</strong><small>Program tahfidz · bersama pembimbing</small></span><span class="review-tag tag-ready">Terjadwal</span></article>
+        </div>
+        <div class="gentle-note"><span>✳</span><p><strong>Catatan kecil:</strong> jadwal ini masih berupa contoh statis. Versi berikutnya bisa menghubungkan agenda dengan data santri dan riwayat setoran.</p></div>
+        <footer class="page-footer"><span>TAHFIDZ TRACK</span><span>Consistency, with care.</span></footer>
+      </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-main container">
-      <div>
-        <a href="#home" class="logo">ÉL<span>O</span>RA.</a>
-        <p style="margin-top: 10px;">
-          The art of living beautifully.
-        </p>
-      </div>
+      <section class="page" id="page-reports">
+        <div class="page-title-row"><div><div class="eyebrow"><span class="eyebrow-line"></span> INSIGHT & RECAP</div><h1>Rekap <span>perkembangan.</span></h1><p class="intro">Ringkasan untuk membantu pembimbing melihat proses secara utuh.</p></div><button class="primary-button" id="exportButton">↓ Ekspor CSV</button></div>
+        <div class="report-cards"><article class="report-card"><span>JUMLAH CATATAN</span><strong id="reportTotal">08</strong><small>Catatan setoran tersimpan di browser</small></article><article class="report-card"><span>METODE INDIVIDUAL</span><strong id="reportIndividual">06</strong><small>Setoran dicatat per santri</small></article><article class="report-card"><span>METODE HALAQAH</span><strong id="reportGroup">02</strong><small>Catatan dari sesi halaqah</small></article></div>
+        <div class="panel table-panel"><div class="panel-heading"><div><h2>Riwayat setoran</h2><p>Data contoh dan catatan yang lo tambahkan.</p></div><span class="subtle-label">LATEST FIRST</span></div><div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Santri</th><th>Materi</th><th>Metode</th><th>Evaluasi</th></tr></thead><tbody id="reportTable"></tbody></table></div></div>
+        <div class="gentle-note"><span>ⓘ</span><p>CSV hanya berisi data demo atau input lokal. Jangan gunakan data pribadi santri sungguhan pada prototipe ini.</p></div>
+        <footer class="page-footer"><span>TAHFIDZ TRACK</span><span>Data demo · belum tersinkron antarperangkat</span></footer>
+      </section>
+    </main>
+  </div>
 
-      <div class="footer-links">
-        <a href="#home">HOME</a>
-        <a href="#collections">COLLECTIONS</a>
-        <a href="#about">OUR STORY</a>
-        <a href="#contact">CONTACT</a>
-      </div>
-    </div>
-
-    <div class="copyright">
-      © <span id="year"></span> ÉLORA STUDIO — MADE WITH INTENTION.
-    </div>
-  </footer>
-
-  <script>
-    // Automatically update the copyright year
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-    // Mobile navigation
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    menuToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", isOpen);
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
-      );
-      menuToggle.textContent = isOpen ? "×" : "☰";
-    });
-
-    // Close the mobile menu after selecting a section
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Buka menu navigasi");
-        menuToggle.textContent = "☰";
-      });
-    });
-
-    // Reveal sections as they enter the viewport
-    const revealElements = document.querySelectorAll(".reveal");
-
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.12 }
-      );
-
-      revealElements.forEach(element => observer.observe(element));
-    } else {
-      revealElements.forEach(element =>
-        element.classList.add("visible")
-      );
-    }
-  </script>
-
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog class="small-dialog" id="studentDialog">
+    <form id="studentForm" method="dialog">
+      <div class="dialog-head"><div><span class="subtle-label">NEW PROFILE</span><h2>Tambah santri</h2></div><button class="close-button" type="button" data-close="studentDialog" aria-label="Tutup">×</button></div>
+      <label class="field-label">Nama santri <span>*</span><input id="newStudentName" required maxlength="70" placeholder="Nama contoh"></label>
+      <div class="form-two-col"><label class="field-label">Kelas <span>*</span><select id="newStudentClass"><option>SMP 7</option><option>SMP 8</option><option>SMP 9</option><option>MA 10</option><option>MA 11</option><option>MA 12</option></select></label><label class="field-label">Halaqah <span>*</span><select id="newStudentGroup"><option>Al-Kindi</option><option>Maryam</option><option>Ibnu Sina</option><option>Al-Farabi</option></select></label></div>
+      <button class="primary-button full-button" type="submit">Tambah ke daftar <span>↗</span></button>
+    </form>
+  </dialog>
+  <dialog class="small-dialog" id="aboutDialog">
+    <div class="dialog-head"><div><span class="subtle-label">ABOUT THIS PROJECT</span><h2>Ruang tumbuh hafalan.</h2></div><button class="close-button" type="button" data-close="aboutDialog" aria-label="Tutup">×</button></div>
+    <p class="dialog-copy">Tahfidz Track adalah prototipe monitoring hafalan Al-Qur’an untuk membantu pengurus mencatat setoran, melihat perkembangan, dan menyusun tindak lanjut murajaah dengan lebih terarah.</p>
+    <div class="dialog-note">Versi demo · belum memakai server atau login sungguhan. Data tersimpan lokal di browser yang digunakan.</div>
+  </dialog>
+  <script src="app.js"></script>
 </body>
 </html>
